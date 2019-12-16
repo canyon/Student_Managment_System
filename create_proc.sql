@@ -1,17 +1,17 @@
-﻿--execute  dbo.pGetMoney 2019, '企业单位', @sumOrdermoney output;
---select '2019年 企业单位 订购金额合计: ', convert(varchar(12),@sumOrdermoney);
+﻿----execute  dbo.pGetMoney 2019, '企业单位', @sumOrdermoney output;
+----select distinct '2019年 企业单位 订购金额合计: ', convert(varchar(12),@sumOrdermoney);
 
 --alter procedure check_stu_id @id char(15) as begin
---select
+--select distinct
 --	count(*)
 --from
 --	(
---		select
+--		select distinct
 --			stu_id
 --		from
 --			student as stu
 --		union
---		select
+--		select distinct
 --			tea_id
 --		from
 --			teacher as tea
@@ -23,16 +23,16 @@
 
 --alter procedure check_passwd @id char(15),
 --	@passwd char(15) as begin
---select
+--select distinct
 --	count(*)
 --from
 --	(
---		select
+--		select distinct
 --			stu_id, passwd
 --		from
 --			student as stu
 --		union
---		select
+--		select distinct
 --			tea_id, passwd
 --		from
 --			teacher as tea
@@ -43,7 +43,7 @@
 --go
 
 --alter procedure check_admin_id @id char(15) as begin
---select
+--select distinct
 --	count(*)
 --from
 --	admin_jwxt
@@ -54,7 +54,7 @@
 
 --alter procedure check_admin_passwd @id char(15),
 --@passwd char(15) as begin
---select
+--select distinct
 --	count(*)
 --from
 --	admin_jwxt
@@ -69,7 +69,7 @@
 --@course char(20)
 --as
 --begin
---select sco_year as "年份", tea.tea_name as "任课老师", cour.cour_id as "课程号", cour_name as "课程名", score as "分数"
+--select distinct sco_year as "年份", tea.tea_name as "任课老师", cour.cour_id as "课程号", cour_name as "课程名", score as "分数"
 --from student as stu join score as sco on stu.stu_id = sco.stu_id
 --join course as cour on cour.cour_id = sco.cour_id 
 --join teacher as tea on tea.cour_id = cour.cour_id
@@ -81,34 +81,32 @@
 --@id char(15)
 --as
 --begin
---select sco_year as "年份", tea.tea_name as "任课老师", cour.cour_id as "课程号", cour_name as "课程名", score as "分数"
+--select distinct sco_year as "年份", tea.tea_name as "任课老师", cour.cour_id as "课程号", cour_name as "课程名", score as "分数"
 --from student as stu join score as sco on stu.stu_id = sco.stu_id
 --join course as cour on cour.cour_id = sco.cour_id 
 --join teacher as tea on tea.cour_id = cour.cour_id
 --where stu.stu_id = @id
 --end
-
---ALTER DATABASE jwxt SET SINGLE_USER WITH ROLLBACK IMMEDIATE
---ALTER DATABASE jwxt COLLATE Chinese_PRC_CI_AS
---ALTER DATABASE jwxt SET MULTI_USER
+--go
 
 --alter procedure get_this_stu
 --@id char(15)
 --as
 --begin
---select stu.stu_id as id, stu.stu_name as stu_name, stu.grade as grade, stu.class as class, pro.pro_name as pro_name
+--select distinct stu.stu_id as id, stu.stu_name as stu_name, stu.grade as grade, stu.class as class, pro.pro_name as pro_name
 --from profession as pro 
 --join student as stu on pro.stu_id = stu.stu_id join score as sco on stu.stu_id = sco.stu_id
 --join course as cour on cour.cour_id = sco.cour_id 
 --join teacher as tea on tea.cour_id = cour.cour_id
 --where stu.stu_id = @id
 --end
+--go
 
 --alter procedure get_this_tea
 --@id char(15)
 --as
 --begin
---select tea.tea_id as id, tea.tea_name as stu_name
+--select distinct tea.tea_id as id, tea.tea_name as stu_name
 --from teacher as tea
 --where tea.tea_id = @id
 --end
@@ -118,23 +116,104 @@
 --@id char(15)
 --as
 --begin
---select cour.cour_id as "课程号", cour_name as "课程名"
+--select distinct cour.cour_id as "课程号", cour_name as "课程名"
 --from course as cour join teacher as tea on tea.tea_id = cour.tea_id
 --where tea.tea_id = @id
 --end
+--go
 
-create procedure get_stu_detail
-as
-begin
-select stu.stu_id as "学号", stu.stu_name as "姓名", stu.grade as "年级", stu.class as "班级"
-from student as stu
-end
-go
+--alter procedure get_stu_detail
+--as
+--begin
+--select distinct stu.stu_id as "学号", stu.stu_name as "姓名", stu.grade as "年级", stu.class as "班级"
+--from student as stu
+--end
+--go
 
-create procedure get_tea_detail
-as
-begin
-select stu.stu_id as "学号", stu.stu_name as "姓名", stu.grade as "年级", stu.class as "班级"
-from student as stu
-end
-go
+--alter procedure get_tea_detail
+--as
+--begin
+--select distinct tea.tea_id as "工号", tea.tea_name as "姓名", cour.cour_id as "课程号", cour.cour_name as "课程名"
+--from teacher as tea join course as cour on tea.tea_id = cour.tea_id
+--end
+--go
+
+--alter procedure get_course_detail
+--as
+--begin
+--select distinct tea.tea_id as "工号", tea.tea_name as "姓名", cour.cour_id as "课程号", cour.cour_name as "课程名"
+--from teacher as tea 
+--join course as cour on tea.tea_id = cour.tea_id 
+--join score as sco on sco.cour_id = cour.cour_id 
+--join student as stu on sco.stu_id = stu.stu_id
+--end
+--go
+
+--alter procedure get_score_detail
+--as
+--begin
+--select distinct cour.cour_id as "课程号", 
+--cour.cour_name as "课程名", 
+--sco.sco_year as "年份",  
+--stu.stu_id as "学号", 
+--stu.stu_name as "姓名", 
+--sco.score as "成绩"
+--from teacher as tea 
+--join course as cour on tea.tea_id = cour.tea_id 
+--join score as sco on sco.cour_id = cour.cour_id 
+--join student as stu on sco.stu_id = stu.stu_id
+--end
+--go
+
+--create procedure update_gv3
+--@cour_id char(15),
+--@tea_id char(15),
+--@tea_name char(20)
+--as
+--begin
+--update course
+--set tea_id = @tea_id,
+--tea_name = @tea_name
+--where cour
+--end
+
+--alter procedure update_gv4
+--@cour_id char(15),
+--@stu_id char(15),
+--@score char(15)
+--as
+--begin
+--update score set score.score = @score 
+--where cour_id = @cour_id and stu_id = @stu_id;
+--end
+--go
+
+--create procedure get_stu_by_id
+--@stu_id char(15)
+--as
+--begin
+--select stu_id as "学号", stu_name as "姓名", grade as "年级", class as "班级"
+--from student
+--where stu_id = @stu_id
+--end
+--go
+
+--create procedure get_tea_by_id
+--@tea_id char(15)
+--as
+--begin
+--select cour.tea_id as "工号", tea.tea_name as "姓名", cour.cour_id as "课程号", cour.cour_name as "课程名"
+--from course as cour join teacher as tea on cour.tea_id = tea.tea_id
+--where cour.tea_id = @tea_id
+--end
+--go
+
+--create procedure get_cour_by_id
+--@cour_id char(15)
+--as
+--begin
+--select cour.cour_id as "课程号", cour.cour_name as "课程名", cour.tea_id as "工号", tea.tea_name as "姓名"
+--from course as cour join teacher as tea on cour.tea_id = tea.tea_id
+--where cour.cour_id = @cour_id
+--end
+--go

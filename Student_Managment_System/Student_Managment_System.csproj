@@ -106,7 +106,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="admin_class.aspx" />
+    <Content Include="admin_course.aspx" />
     <Content Include="admin_jwxt.aspx" />
+    <Content Include="admin_score.aspx" />
+    <Content Include="admin_student.aspx" />
+    <Content Include="admin_teacher.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -126,11 +131,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="style\all_admin.css" />
     <Content Include="style\images\emil.png" />
     <Content Include="style\images\Fuji.jpg" />
     <Content Include="style\images\jquery.min.js" />
     <Content Include="style\images\login.png" />
     <Content Include="style\images\password.png" />
+    <Content Include="style\images\rohit-tandon-9wg5jCEPBsw-unsplash.jpg" />
     <Content Include="style\images\Sierra.jpg" />
     <Content Include="login.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -172,12 +179,47 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="admin_class.aspx.cs">
+      <DependentUpon>admin_class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_class.aspx.designer.cs">
+      <DependentUpon>admin_class.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_course.aspx.cs">
+      <DependentUpon>admin_course.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_course.aspx.designer.cs">
+      <DependentUpon>admin_course.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin_jwxt.aspx.cs">
       <DependentUpon>admin_jwxt.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin_jwxt.aspx.designer.cs">
       <DependentUpon>admin_jwxt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_score.aspx.cs">
+      <DependentUpon>admin_score.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_score.aspx.designer.cs">
+      <DependentUpon>admin_score.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_student.aspx.cs">
+      <DependentUpon>admin_student.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_student.aspx.designer.cs">
+      <DependentUpon>admin_student.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin_teacher.aspx.cs">
+      <DependentUpon>admin_teacher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin_teacher.aspx.designer.cs">
+      <DependentUpon>admin_teacher.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">

@@ -1,30 +1,30 @@
-﻿create table student
-(
-	stu_id char(15) primary key,
-	stu_name varchar(20),
-	grade char(15),
-	class char(15),
-	passwd char(15)
-) 
-create table teacher
-(
-	tea_id char(15) primary key,
-	tea_name varchar(20),
-	cour_id char(15),
-	passwd char(15)
-)
-create table profession
-(
-	pro_id char(15),
-	pro_name varchar(20),
-	stu_id char(15) primary key
-)
-create table course
-(
-	cour_id char(15) primary key,
-	cour_name varchar(20),
-	tea_id char(15)
-)
+﻿--create table student
+--(
+--	stu_id char(15) primary key,
+--	stu_name varchar(20),
+--	grade char(15),
+--	class char(15),
+--	passwd char(15)
+--) 
+--create table teacher
+--(
+--	tea_id char(15) primary key,
+--	tea_name varchar(20),
+--	cour_id char(15),
+--	passwd char(15)
+--)
+--create table profession
+--(
+--	pro_id char(15),
+--	pro_name varchar(20),
+--	stu_id char(15) primary key
+--)
+--create table course
+--(
+--	cour_id char(15) not null,
+--	tea_id char(15) not null,
+--	cour_name varchar(20)
+--)
 --create table score
 --(
 --	cour_id char(15) not null,
@@ -41,4 +41,7 @@ create table course
 --	passwd char(15)
 --)
 
---insert into admin_jwxt values('000', '000');
+----insert into admin_jwxt values('000', '000');
+
+--alter table course add primary key (cour_id, tea_id)
+

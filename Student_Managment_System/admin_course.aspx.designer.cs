@@ -11,7 +11,7 @@ namespace Student_Managment_System
 {
 
 
-    public partial class admin_jwxt
+    public partial class admin_course
     {
 
         /// <summary>
@@ -42,22 +42,22 @@ namespace Student_Managment_System
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Button1 控件。
+        /// home 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button home;
 
         /// <summary>
-        /// Button3 控件。
+        /// Lable3 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button3;
+        protected global::System.Web.UI.WebControls.Label Lable3;
 
         /// <summary>
         /// Button5 控件。
@@ -69,12 +69,30 @@ namespace Student_Managment_System
         protected global::System.Web.UI.WebControls.Button Button5;
 
         /// <summary>
-        /// Button7 控件。
+        /// Button2 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button7;
+        protected global::System.Web.UI.WebControls.Button Button2;
+
+        /// <summary>
+        /// TextBox1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
+        /// GridView3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView3;
     }
 }
